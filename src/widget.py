@@ -18,4 +18,5 @@ def info_cart(info: str) -> str:
 
 
 def transformation_date(date: str) -> str:
+    """Функция преобразовывающая дату"""
     return f"{date[8:10]}.{date[5:7]}.{date[0:4]}"
