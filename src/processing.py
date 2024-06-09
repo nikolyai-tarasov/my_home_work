@@ -4,7 +4,7 @@ def filter_by_state(my_dict: list, state_: str = "EXECUTED") -> list:
     for i in my_dict:
         if i["state"] == state_:
             return_list.append(i)
-            return return_list
+    return return_list
 
 
 def sort_by_date(my_dict: list, direction: bool = True) -> list:
