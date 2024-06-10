@@ -1,8 +1,8 @@
-def filter_by_state(my_dict: list, state_='EXECUTED') -> list:
+def filter_by_state(my_dict: list, state_: str = "EXECUTED") -> list:
     """Функция сортирует списки словарей по второму заданному аргументу"""
     return_list = []
     for i in my_dict:
-        if i['state'] == state_:
+        if i["state"] == state_:
             return_list.append(i)
     return return_list
 
