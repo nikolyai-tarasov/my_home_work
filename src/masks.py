@@ -1,7 +1,8 @@
 def masking_cards(num_cards: str) -> str:
     """Функция маскирует номер карты пользователя"""
+
     if num_cards.isdigit() and len(num_cards) == 16:
-        return f"{num_cards[0:5]} {num_cards[5:7]}{"*" * 2} {"*" * 4} {num_cards[12:]}"
+        return f"{num_cards[0:4]} {num_cards[4:6]}{"*" * 2} {"*" * 4} {num_cards[12:]}"
     else:
         return "Не верно введен номер карты"
 
