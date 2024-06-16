@@ -51,44 +51,44 @@ def test_check_mask_other(value, expected):
 
 def test_filter(proces_test):
     assert (
-            filter_by_state(
-                [
-                    {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-                    {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-                    {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-                    {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
-                ],
-            )
-            == proces_test
+        filter_by_state(
+            [
+                {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
+                {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
+                {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
+                {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
+            ],
+        )
+        == proces_test
     )
 
 
 def test_filter():
     assert (
-            filter_by_state(
-                [
-                    {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-                    {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-                    {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-                    {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
-                ],
-                "sdfxz",
-            )
-            == "Введите корректный 2 аргумент"
+        filter_by_state(
+            [
+                {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
+                {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
+                {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
+                {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
+            ],
+            "sdfxz",
+        )
+        == "Введите корректный 2 аргумент"
     )
 
 
 def test_sort_date(sort_date):
     assert (
-            sort_by_date(
-                [
-                    {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-                    {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-                    {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-                    {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
-                ]
-            )
-            == sort_date
+        sort_by_date(
+            [
+                {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
+                {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
+                {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
+                {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
+            ]
+        )
+        == sort_date
     )
 
 
