@@ -21,7 +21,7 @@ def test_filter_by_currency():
                 "USD",
             )
         )
-        == "939719570"
+        == 939719570
     )
 
 

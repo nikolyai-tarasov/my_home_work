@@ -3,7 +3,7 @@ def filter_by_currency(transaction: list, currency: str) -> dict:
     if transaction == list(transaction) and currency == str(currency):
         for i in transaction:
             if i["operationAmount"]["currency"]["code"] == currency:
-                yield i
+                yield i['id']
     else:
         yield "Введены не верные данные"
 
@@ -28,5 +28,4 @@ def card_number_generator(start, stop):
         yield "Введены не верные данные"
 
 
-for card_number in card_number_generator("2", 5):
-    print(card_number)
+
