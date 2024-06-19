@@ -27,4 +27,4 @@ def dauble_2(x):
     return x / x
 
 
-print(dauble_2(0))
+print(dauble_2(""))

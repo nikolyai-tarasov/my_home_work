@@ -38,3 +38,6 @@ dauble_2 error:division by zero. Inputs: (0,), {}
 dauble_2 error:division by zero. Inputs: (0,), {}
 dauble_2 error:division by zero. Inputs: (0,), {}
 dauble_2 error:division by zero. Inputs: (0,), {}
+dauble_2 error:division by zero. Inputs: (0,), {}
+dauble_2 error:unsupported operand type(s) for /: 'str' and 'str'. Inputs: ('',), {}
+dauble_2 error:unsupported operand type(s) for /: 'str' and 'str'. Inputs: ('',), {}
