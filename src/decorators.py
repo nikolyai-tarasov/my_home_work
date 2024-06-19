@@ -1,17 +1,21 @@
-def log(filename):
+def log(filename=None):
     def decorator(func):
-        def wrapper(*args):
-            result = func(*args)
+        def wrapper(*args, **kwargs):
             try:
-                if filename != "":
-                    return result
-                else:
-                    return open(filename, "my_function ok")
+                result = func(*args, **kwargs)
+                print(result)
             except Exception as e:
-                if filename != "":
-                    return f"my_function ok"
+                if filename is not None:
+                    with open(filename, "a") as f:
+                        f.write(f"{func.__name__} error:{e}. Inputs: {args}, {kwargs}\n")
                 else:
-                    return open(filename, f"my_function error: {e}. Inputs: {args}, ")
+                    return f"{func.__name__} error:{e}. Inputs: {args}, {kwargs}"
+            else:
+                if filename is not None:
+                    with open(filename, "a") as f:
+                        f.write(f"{func.__name__} ok\n")
+                else:
+                    print(f"{func.__name__} ok")
 
         return wrapper
 
@@ -20,7 +24,7 @@ def log(filename):
 
 @log(filename="mylog.txt")
 def dauble_2(x):
-    return x * x
+    return x / x
 
 
-print(dauble_2(4))
+print(dauble_2(0))
