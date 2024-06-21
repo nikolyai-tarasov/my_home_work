@@ -6,28 +6,19 @@ def log(filename=None):
                 result = func(*args, **kwargs)
             except Exception as e:
                 if filename is not None:
-                    result = f"Ошибка, зайдите в файл {filename}"
                     with open(filename, "a") as f:
                         f.write(f"{func.__name__} error:{e}. Inputs: {args}, {kwargs}\n")
 
                 else:
-                    return f"{func.__name__} error:{e}. Inputs: {args}, {kwargs}"
+                    print(f"{func.__name__} error:{e}. Inputs: {args}, {kwargs}")
             else:
                 if filename is not None:
                     with open(filename, "a") as f:
                         f.write(f"{func.__name__} ok\n")
                 else:
-                    return f"{func.__name__} ok"
+                        print(f"{func.__name__} ok")
             return result
 
         return wrapper
 
     return decorator
-
-
-@log(filename="mylog.txt")
-def dauble_2(x):
-    return x / x
-
-
-print(dauble_2(3))
