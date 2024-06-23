@@ -16,9 +16,13 @@ def log(filename=None):
                     with open(filename, "a") as f:
                         f.write(f"{func.__name__} ok\n")
                 else:
-                        print(f"{func.__name__} ok")
+                    print(f"{func.__name__} ok")
             return result
 
         return wrapper
 
     return decorator
+
+
+def dauble_2(x):
+    return x / x
