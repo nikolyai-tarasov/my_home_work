@@ -34,5 +34,6 @@ def currency_conversion(transaction: list) -> float:
     return count_sum_amount
 
 
-res_func = read_file("../data/operations.json")
-print(currency_conversion(res_func))
+if __name__ == '__main__':
+    res_func = read_file("../data/operations.json")
+    print(currency_conversion(res_func))

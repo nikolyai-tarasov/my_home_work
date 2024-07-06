@@ -16,5 +16,4 @@ def read_file(filename: str = None) -> list:
         return []
 
 
-transaction = read_file("sdf")
-print(transaction)
+
