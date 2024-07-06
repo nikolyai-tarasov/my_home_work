@@ -1,8 +1,10 @@
 import json
 import os
+
 import requests
-from src.utils import read_file
 from dotenv import load_dotenv
+
+from src.utils import read_file
 
 load_dotenv(".env")
 
@@ -34,6 +36,6 @@ def currency_conversion(transaction: list) -> float:
     return count_sum_amount
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     res_func = read_file("../data/operations.json")
     print(currency_conversion(res_func))
