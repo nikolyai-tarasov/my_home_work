@@ -13,10 +13,10 @@ def read_file(filename: str = None) -> list:
     """Функция считывающая информацию JSON формата с заданного файла"""
     if filename is not None:
         try:
-            logger.info(f'Начало работы с "json" файлом')
+            logger.info('Начало работы с "json" файлом')
             with open(filename, encoding="utf-8") as file:
                 reading = json.load(file)
-                logger.info(f"Проверка созданного файла")
+                logger.info("Проверка созданного файла")
                 if type(reading) is not list or len(reading) == 0 or filename is None:
                     return []
             return reading
