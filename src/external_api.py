@@ -13,7 +13,7 @@ API_KEY = os.getenv("API_KEY")
 def currency_conversion(transaction: list) -> float:
     """Функция конвертации валюты"""
     count_sum_amount = 0
-    url = 'https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=EUR&amount='
+    url = "https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=EUR&amount="
     if transaction[0]["operationAmount"]["currency"]["code"] == "USD":
         url_1 = f"{url}{transaction[0]["operationAmount"]['amount']}"
         payload = {}
