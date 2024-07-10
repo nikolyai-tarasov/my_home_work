@@ -1,6 +1,4 @@
-import pytest
-
-from src.decorators import dauble_2, log
+from src.decorators import dauble_2
 
 
 def test_log_decor():

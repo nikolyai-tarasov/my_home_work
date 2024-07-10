@@ -63,7 +63,7 @@ def test_filter(proces_test):
     )
 
 
-def test_filter():
+def test_filter_1():
     assert (
         filter_by_state(
             [
