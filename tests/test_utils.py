@@ -3,7 +3,7 @@ from src.utils import read_file
 
 def test_read_file():
     assert read_file("") == []
-    assert read_file("../data/tests_operations.json") == [
+    assert read_file("../data/data_json/tests_operations.json") == [
         {
             "id": 441945886,
             "state": "EXECUTED",
