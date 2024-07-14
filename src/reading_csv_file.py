@@ -2,6 +2,9 @@ import csv
 
 
 def read_csv(path_file):
+    """
+    Функция читает CSV файл и возвращает список словарей
+    """
     with open(path_file, "r", encoding="utf-8") as file:
         reader = csv.reader(file, delimiter=";")
         header = next(reader)
