@@ -1,3 +1,5 @@
+from collections import Counter
+
 bank_statements = [
     {
         "id": 939719570,
@@ -54,11 +56,23 @@ bank_statements = [
     },
 ]
 
+list_db = ["Перевод организации", "Перевод со счета на счет"]
 
-def search_dict(list_dict: list, string_search: str) -> list:
-    """Функция для фильтрации списка банковских операции по описанию"""
-    return [i for i in list_dict if string_search == i["description"]]
+
+def count_operation(list_dict: list, list_category: list) -> dict:
+    """Функция подсчета количества категорий в списке словарей по списку категории"""
+    name_category = []
+    counter_dict = {}
+    for i in list_dict:
+        name_category.append(i["description"])
+    counter_category = Counter(name_category)
+    cortege_category = counter_category.most_common()
+    for i in list_category:
+        for c in cortege_category:
+            if i == c[0]:
+                counter_dict[i] = c[1]
+    return counter_dict
 
 
 if __name__ == "__main__":
-    print(search_dict(bank_statements, "Перевод организации"))
+    print(count_operation(bank_statements, list_db))
