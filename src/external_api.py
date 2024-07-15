@@ -22,7 +22,7 @@ def currency_conversion(transaction: list) -> float:
         response = requests.request("GET", url_1, headers=headers, data=payload)
         status_code = response.status_code
         result = response.json()
-        return result['result']
+        return result["result"]
     elif transaction[0]["operationAmount"]["currency"]["code"] == "EUR":
         url_1 = f"{url_eur}{transaction[0]["operationAmount"]["amount"]}"
         payload = {}
@@ -30,7 +30,7 @@ def currency_conversion(transaction: list) -> float:
         response = requests.request("GET", url_1, headers=headers, data=payload)
         status_code = response.status_code
         result = response.json()
-        return result['result']
+        return result["result"]
     else:
         count_sum_amount += float(transaction[0]["operationAmount"]["amount"])
 
@@ -38,5 +38,5 @@ def currency_conversion(transaction: list) -> float:
 
 
 if __name__ == "__main__":
-    res_func = read_file("../data/tests_operations.json")
+    res_func = read_file("../data/data_json/tests_operations.json")
     print(currency_conversion(res_func))
