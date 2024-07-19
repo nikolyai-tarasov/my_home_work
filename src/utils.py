@@ -3,7 +3,7 @@ import logging
 
 logger = logging.getLogger("utils")
 logger.setLevel(logging.INFO)
-file_handler = logging.FileHandler("../logs/utils.log", "w")
+file_handler = logging.FileHandler("logs/utils.log", "w")
 file_formater = logging.Formatter("%(asctime)s %(filename)s %(levelname)s %(message)s")
 file_handler.setFormatter(file_formater)
 logger.addHandler(file_handler)
@@ -18,15 +18,13 @@ def read_file(filename: str = None) -> list:
                 reading = json.load(file)
                 logger.info("Проверка созданного файла")
                 if type(reading) is not list or len(reading) == 0 or filename is None:
-                    return []
+                    return [2]
             return reading
         except (FileNotFoundError, json.JSONDecodeError):
             logger.error(f"Произошла ошибка: {FileNotFoundError}")
-            return []
+            return [3]
     else:
         logger.info(f"Не подходящий формат: {type(filename)}")
         return []
 
 
-if __name__ == "__main__":
-    read_file()

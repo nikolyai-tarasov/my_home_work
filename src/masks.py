@@ -2,7 +2,7 @@ import logging
 
 logger = logging.getLogger("masks")
 logger.setLevel(logging.INFO)
-file_handler = logging.FileHandler("../logs/masks.log", "w")
+file_handler = logging.FileHandler("logs/masks.log", "w")
 file_formater = logging.Formatter("%(asctime)s %(filename)s %(levelname)s %(message)s")
 file_handler.setFormatter(file_formater)
 logger.addHandler(file_handler)
@@ -28,6 +28,4 @@ def check_mask(num_check: str) -> str:
         return "Не верно введен номер счета"
 
 
-if __name__ == "__main__":
-    masking_cards("1432 4112 3456 3456")
-    check_mask("ewrwerewerwer")
+

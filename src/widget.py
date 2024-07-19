@@ -21,8 +21,10 @@ def transformation_date(date: str) -> str:
     """Функция преобразовывающая дату"""
     if len(date) == 26:
         return f"{date[8:10]}.{date[5:7]}.{date[0:4]}"
+    elif len(date) == 20:
+        return f"{date[8:10]}.{date[5:7]}.{date[0:4]}"
     else:
         return "Введена не корректная дата"
 
 
-print(transformation_date("2023-12-13T02:26:18.671407"))
+

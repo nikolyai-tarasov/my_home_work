@@ -1,64 +1,32 @@
 bank_statements = [
-    {
-        "id": 939719570,
-        "state": "EXECUTED",
-        "date": "2018-06-30T02:08:58.425572",
-        "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD"}},
-        "description": "Перевод организации",
-        "from": "Счет 75106830613657916952",
-        "to": "Счет 11776614605963066702",
-    },
-    {
-        "id": 587085106,
-        "state": "EXECUTED",
-        "date": "2018-03-23T10:45:06.972075",
-        "operationAmount": {"amount": "48223.05", "currency": {"name": "руб.", "code": "RUB"}},
-        "description": "Открытие вклада",
-        "to": "Счет 41421565395219882431",
-    },
-    {
-        "id": 142264268,
-        "state": "EXECUTED",
-        "date": "2019-04-04T23:20:05.206878",
-        "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USD"}},
-        "description": "Перевод со счета на счет",
-        "from": "Счет 19708645243227258542",
-        "to": "Счет 75651667383060284188",
-    },
-    {
-        "id": 873106923,
-        "state": "EXECUTED",
-        "date": "2019-03-23T01:09:46.296404",
-        "operationAmount": {"amount": "43318.34", "currency": {"name": "руб.", "code": "RUB"}},
-        "description": "Перевод со счета на счет",
-        "from": "Счет 44812258784861134719",
-        "to": "Счет 74489636417521191160",
-    },
-    {
-        "id": 214024827,
-        "state": "EXECUTED",
-        "date": "2018-12-20T16:43:26.929246",
-        "operationAmount": {"amount": "70946.18", "currency": {"name": "USD", "code": "USD"}},
-        "description": "Перевод организации",
-        "from": "Счет 10848359769870775355",
-        "to": "Счет 21969751544412966366",
-    },
-    {
-        "id": 522357576,
-        "state": "EXECUTED",
-        "date": "2019-07-12T20:41:47.882230",
-        "operationAmount": {"amount": "51463.70", "currency": {"name": "USD", "code": "USD"}},
-        "description": "Перевод организации",
-        "from": "Счет 48894435694657014368",
-        "to": "Счет 38976430693692818358",
-    },
-]
-
+    {'id': '5446796', 'state': 'EXECUTED', 'date': '2020-10-06T23:30:05Z', 'amount': '26873', 'currency_name': 'Euro',
+     'currency_code': 'EUR', 'from': '', 'to': 'Счет 18984367308636722946', 'description': 'Открытие вклада'},
+    {'id': '1245327', 'state': 'PENDING', 'date': '2021-03-09T00:56:48Z', 'amount': '24252', 'currency_name': 'Somoni',
+     'currency_code': 'TJS', 'from': 'Discover 3233958335206913', 'to': 'Visa 6269545625045856',
+     'description': 'Перевод с карты на карту'},
+    {'id': '134341', 'state': 'CANCELED', 'date': '2022-03-03T08:41:08Z', 'amount': '13642', 'currency_name': 'Peso',
+     'currency_code': 'COP', 'from': 'Visa 9770850749183268', 'to': 'American Express 0522499169905654',
+     'description': 'Перевод с карты на карту'},
+    {'id': '2177828', 'state': 'EXECUTED', 'date': '2022-04-14T15:14:21Z', 'amount': '24853',
+     'currency_name': 'Yuan Renminbi', 'currency_code': 'CNY', 'from': 'Счет 38577962752140632721',
+     'to': 'Счет 47657753885349826314', 'description': 'Перевод со счета на счет'},
+    {'id': '4137938', 'state': 'EXECUTED', 'date': '2023-01-04T13:13:34Z', 'amount': '15560', 'currency_name': 'Real',
+     'currency_code': 'BRL', 'from': '', 'to': 'Счет 38164279390569873521', 'description': 'Открытие вклада'},
+    {'id': '4699552', 'state': 'EXECUTED', 'date': '2022-03-23T08:29:37Z', 'amount': '23423', 'currency_name': 'Peso',
+     'currency_code': 'PHP', 'from': 'Discover 7269000803370165', 'to': 'American Express 1963030970727681',
+     'description': 'Перевод с карты на карту'}]
 
 def search_dict(list_dict: list, string_search: str) -> list:
     """Функция для фильтрации списка банковских операции по описанию"""
-    return [i for i in list_dict if string_search == i["description"]]
+    filter_list = []
+    for i in list_dict:
+        if 'name' in list_dict:
+            if string_search in i["description"]:
+                filter_list.append(i)
+                return filter_list
+        elif string_search in i["description"]:
+            filter_list.append(i)
+            return filter_list
 
 
-if __name__ == "__main__":
-    print(search_dict(bank_statements, "Перевод организации"))
+
