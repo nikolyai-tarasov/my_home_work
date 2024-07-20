@@ -38,7 +38,7 @@ def filter_trans(list_dict: list, currency: str) -> list[Any] | str:
         if "operationAmount" in i:
             if i["operationAmount"]["currency"]["code"] == currency:
                 list_currency.append(i)
-                return list_currency
+            return list_currency
 
         elif i['currency_name'] == currency:
             list_currency.append(i)

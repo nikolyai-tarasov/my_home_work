@@ -25,12 +25,9 @@ def main():
         print("Для обработки выбран JSON-файл.")
         transaction_file = read_file("data/data_json/tests_operations.json")
 
-
-
     elif "2" == user_input:
         print("Для обработки выбран CSV-файл.")
         transaction_file = read_csv("data/data_csv-/transactions.csv")
-
 
     elif "3" == user_input:
         print("Для обработки выбран XLSX-файл.")
@@ -44,48 +41,45 @@ def main():
             access = False
             sort_by_status = filter_by_state(transaction_file, user_status.upper())
 
-
         else:
             print(f"Статус операции {user_status} недоступен.")
 
     print("Отсортировать операции по дате? Да/Нет")
-    date_sorted = input()
+    date_sorted = input().lower()
 
-    if 'Да' in date_sorted:
+    if 'да' == date_sorted:
         print("Отсортировать по возрастанию или по убыванию?")
-        sorting_direction = input()
+        sorting_direction = input().lower()
 
-        if "по возрастанию" in sorting_direction:
+        if "по возрастанию" == sorting_direction:
             sort_date = sort_by_date(sort_by_status)
 
-
-
-        elif "по убыванию" in sorting_direction:
+        elif "по убыванию" == sorting_direction:
             sort_date = sort_by_date(sort_by_status, direction=False)
 
     print("Выводить только рублевые транзакции? Да/Нет")
-    transaction_rubles = input()
+    transaction_rubles = input().lower()
 
-    if "Да" in transaction_rubles:
+    if "да" == transaction_rubles:
 
         if "sort_date" in locals():
             sorted_by_trans = filter_trans(sort_date, "RUB")
             if sorted_by_trans == "Ничего нe найдено":
                 print('''Не найдено ни одной транзакции, подходящей под ваши
-            условия фильтрации''')
+условия фильтрации''')
                 exit()
         else:
             sorted_by_trans = filter_trans(sort_by_status, "RUB")
             if sorted_by_trans == "Ничего нe найдено":
                 print('''Не найдено ни одной транзакции, подходящей под ваши
-            условия фильтрации''')
+условия фильтрации''')
                 exit()
 
     print('''Отфильтровать список транзакций по определенному слову 
 в описании? Да/Нет''')
-    filter_by_word = input()
+    filter_by_word = input().lower()
 
-    if "Да" in filter_by_word:
+    if "да" in filter_by_word:
         filter_words = input('''Введите слово: ''')
 
         if "sorted_by_trans" in locals():
@@ -99,23 +93,49 @@ def main():
     print("Распечатываю итоговый список транзакций...")
 
     if 'filter_word' in locals():
-        print(filter_word)
-        print(1)
+
+        if filter_word is None:
+            print('''Не найдено ни одной транзакции, подходящей под ваши
+условия фильтрации''')
+            exit()
         for i in filter_word:
             conter_operation += 1
+        print(f'''Всего банковских операций в выборке: {conter_operation}
+''')
+        for i in filter_word:
             print(operation_reverser(i))
+
     elif 'sorted_by_trans' in locals():
-        print(sorted_by_trans)
-        print(2)
+
+        if sorted_by_trans is None:
+            print('''Не найдено ни одной транзакции, подходящей под ваши
+условия фильтрации''')
+            exit()
+
+        for i in sorted_by_trans:
+            conter_operation += 1
+        print(f'''Всего банковских операций в выборке: {conter_operation}
+''')
+
         for i in sorted_by_trans:
             conter_operation += 1
             print(operation_reverser(i))
+
     else:
-        print(sort_by_status)
-        print(3)
+        if sort_by_status is None:
+            print('''Не найдено ни одной транзакции, подходящей под ваши
+условия фильтрации''')
+            exit()
+
+        for i in sort_by_status:
+            conter_operation += 1
+        print(f'''Всего банковских операций в выборке: {conter_operation}
+''')
+
         for i in sort_by_status:
             conter_operation += 1
             print(operation_reverser(i))
+    return "До свидания!"
 
 
 if __name__ == "__main__":
