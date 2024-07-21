@@ -7,7 +7,7 @@ def filter_by_state(my_dict: list, state_: str = "EXECUTED") -> Union[list, str]
     for i in my_dict:
         if i["state"] == state_:
             return_list.append(i)
-        elif state_ != "EXECUTED" and state_ != "CANCELED":
+        elif state_ != "EXECUTED" and state_ != "CANCELED" and state_ != "PENDING":
             return "Введите корректный 2 аргумент"
 
     return return_list
